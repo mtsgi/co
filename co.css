@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    background: #303030;
+    color: #f0f0f0;
+    font-weight: 100;
+}
+
+header {
+    padding: 5px;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+header nav {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+header nav a{
+    display: inline-block;
+    margin: 6px 8px;
+    opacity: .7;
+}
+
+header nav a:hover{
+    opacity: 1.0;
+}

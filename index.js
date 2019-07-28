@@ -10,9 +10,9 @@ app.on( 'window-all-closed', function() {
 } );
 
 app.on( 'ready', function() {
-    mw = new electron.BrowserWindow( {width: 800, height: 600} );
+    mw = new electron.BrowserWindow( {width: 720, height: 480, transparent: true, frame: false} );
     mw.loadURL( 'file://' + __dirname + '/index.html' );
-    
+
     mw.on( 'closed', function() {
         mw = null;
     } );
