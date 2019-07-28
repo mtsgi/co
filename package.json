@@ -8,5 +8,7 @@
   },
   "keywords": [],
   "author": "mtsgi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
 }
