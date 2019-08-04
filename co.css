@@ -6,7 +6,14 @@ body {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
     padding: 5px;
+    background: #303030;
+    box-shadow: 0 0 5px 5px #303030;
     -webkit-user-select: none;
     -webkit-app-region: drag;
 }
@@ -17,12 +24,60 @@ header nav {
     right: 0px;
 }
 
-header nav a{
+header nav a {
     display: inline-block;
     margin: 6px 8px;
     opacity: 1;
 }
 
-header nav a:hover{
+header nav a:hover {
     opacity: .7;
+}
+
+main {
+    margin-top: 40px;
+}
+
+#in {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 3px 8px;
+    font-size: 18px;
+    border: none;
+    color: #f0f0f0;
+    background: #505050;
+    font-weight: 100;
+    border-bottom: 2px solid #909090;
+}
+
+#in:focus {
+    outline: none;
+    border-bottom: 2px solid #53f053;
+}
+
+aside {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 3px 8px;
+    font-size: 18px;
+    border: none;
+    color: #f0f0f0;
+    background: #505050;
+    font-weight: 100;
+    min-height: calc(1em + 6px);
+}
+
+article {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 3px 8px;
+    font-size: 18px;
+    border: none;
+    color: #f0f0f0;
+    background: transparent;
+    font-weight: 100;
+    min-height: calc(1em + 6px);
 }
