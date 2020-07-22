@@ -23,7 +23,7 @@ export default {
   components: {},
   data() {
     return {
-      command: '',
+      command: "",
       logs: [],
       history: []
     };
@@ -33,33 +33,39 @@ export default {
       this.logs.push({
         input: this.command,
         timestamp: new Date().getTime(),
-        ...this.eval(this.command)
+        ...this.eval(this.command),
       });
-      this.command = '';
+      this.command = "";
     },
     eval(expr) {
-      let output, hasError = false;
+      let output,
+        hasError = false;
       try {
         output = new Function(`"use strict"; return ${expr}`)();
       } catch (error) {
-        hasError = true
+        hasError = true;
         output = error;
       }
       return {
-        hasError, output
+        hasError,
+        output,
       };
     },
     close() {
       window.close();
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style src="kitstrap/d/kitstrap.css"></style>
-<style>
+<style lang="scss">
 body {
   background: rgba(238, 232, 213, 0.8);
+}
+#app {
+  font-family: "Source Code Pro", monospace;
+  color: #073642;
 }
 header {
   padding: 4px 8px;
@@ -67,51 +73,56 @@ header {
   width: 100%;
   position: fixed;
   top: 0;
+  > img {
+    position: absolute;
+    z-index: 2;
+    height: 80px;
+    -webkit-app-region: drag;
+  }
+  > nav {
+    text-align: right;
+    -webkit-app-region: drag;
+    > a {
+      height: 16px;
+      width: 16px;
+      display: inline-block;
+      background: #dc322f;
+      box-shadow: 0 1px 8px #dc322f6e;
+      position: relative;
+      top: 5px;
+      border-radius: 50%;
+    }
+  }
+  > .kit-textbox.-flat {
+    font-family: "Source Code Pro", monospace;
+    background: #073642;
+    color: #93a1a1;
+    width: calc(100% - 90px);
+    margin: 15px 0px 10px 90px;
+    font-size: 18px;
+  }
 }
-header > img {
-  position: absolute;
-  z-index: 2;
-  height: 80px;
-  -webkit-app-region: drag;
-}
-header > nav {
-  text-align: right;
-  -webkit-app-region: drag;
-}
-header > nav > a {
-  height: 16px;
-  width: 16px;
-  display: inline-block;
-  background: #dc322f;
-  box-shadow: 0 1px 8px #dc322f6e;
-  position: relative;
-  top: 5px;
-  border-radius: 50%;
-}
-header > .kit-textbox.-flat {
-  font-family: "Source Code Pro", monospace;
-  background: #073642;
-  color: #93a1a1;
-  width: calc(100% - 90px);
-  margin: 15px 0px 10px 90px;
-  font-size: 18px;
-}
-main > section:first-child {
-  margin-top: 90px;
-}
-main > section > .command-input {
-  padding: 5px 12px;
-  color: #657b83;
-}
-main > section > .command-output {
-  padding: 5px 12px;
-  color: #268bd2;
-}
-main > section > .command-output.-error {
-  color: #dc322f;
-}
-#app {
-  font-family: "Source Code Pro", monospace;
-  color: #073642;
+main {
+  > section {
+    > div {
+      padding: 5px 12px;
+      transition: .2s all ease;
+      &:hover {
+        background: #eee8d5;
+      }
+    }
+    .command-input {
+      color: #657b83;
+    }
+    .command-output {
+      color: #268bd2;
+      &.-error {
+        color: #dc322f;
+      }
+    }
+  }
+  > section:first-child {
+    margin-top: 90px;
+  }
 }
 </style>
